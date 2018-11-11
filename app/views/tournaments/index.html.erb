@@ -1,0 +1,10 @@
+<table>
+  <tbody>
+    <% @tournaments.each do |tournament| %>
+      <tr>
+        <td><%= tournament.name %></td>
+        <td><%= tournament.description %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
