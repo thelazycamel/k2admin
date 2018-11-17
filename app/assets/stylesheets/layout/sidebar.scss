@@ -1,0 +1,24 @@
+#sidebar-wrapper {
+  background-color: #010116;
+  ul {
+    width: 100%;
+    padding: 0px;
+    li {
+      width: 100%;
+      display: block;
+      text-decoration: none;
+      a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-bottom: 2px solid #25417f;
+        text-decoration: none;
+        color: #8393A7;
+        &:hover {
+          color: #ffffff;
+          background-color: #25417f;
+        }
+      }
+    }
+  }
+}

@@ -16,6 +16,11 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'turbolinks'
 
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
+gem 'bootstrap', '~> 4.1.3'
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

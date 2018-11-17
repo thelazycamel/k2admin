@@ -1,0 +1,19 @@
+table.table {
+  thead.thead-dark {
+    tr {
+      th {
+        background-color: #25417f;
+      }
+    }
+  }
+  tfoot {
+    td {
+      &.centre {
+        text-align: center;
+        nav {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

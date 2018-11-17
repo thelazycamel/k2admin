@@ -1,10 +1,52 @@
-<table>
+<div class="inner-page-header">
+  <div class="row">
+    <div class="col-sm-12">
+        <h2>Tournaments</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+       <%= link_to "New Tournament", new_tournament_path, class: "btn btn-med btn-primary" %>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group form-inline">
+        <label class="sr-only">Search</label>
+        <input type="search" placeholder="search" class="form-control" />
+        <button type="submit" class="btn btn-med btn-primary">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col" width="20%">Description</th>
+      <th scope="col">Tournament Type</th>
+      <th scope="col">Players</th>
+      <th scope="col">Finished</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
   <tbody>
     <% @tournaments.each do |tournament| %>
       <tr>
-        <td><%= tournament.name %></td>
-        <td><%= tournament.description %>
+        <td><%= link_to(tournament.name, edit_tournament_path(tournament.id)) %></td>
+        <td><%= tournament.description %></td>
+        <td><%= tournament.tournament_type %></td>
+        <td><%= tournament.user_tournament_details.count %></td>
+        <td><%= "finished" if tournament.finished %></td>
+        <td><button class="btn btn-success btn-sm">Edit</button>
+        <button class="btn btn-danger btn-sm">Destroy</button>
+        </td>
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="6" class="centre">
+        <%= paginate @tournaments, theme: 'twitter-bootstrap-4' %>
+      </td>
+    </tr>
+  </tfoot>
 </table>

@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render "/layouts/header" %>
+    </header>
+    <div class="row">
+      <aside id="sidebar-wrapper" class="col-lg-2">
+        <%= render "/layouts/sidebar" %>
+      </aside>
+      <main class="col-lg-10">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   has_many :invitations
   has_many :user_tournament_details
 
+  paginates_per 10
+
 end
