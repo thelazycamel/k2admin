@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   #
   resources :tournaments
   resources :users
+  resources :promotions
+
+  root to: "home#index"
 
 end
