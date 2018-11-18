@@ -1,0 +1,41 @@
+<%= form.email_field :email %>
+<%= form.text_field :username %>
+<%= form.text_field :image %>
+<%= form.text_field :blurb %>
+<%= form.submit "Update Player", class: "btn btn-lg btn-primary" %>
+<hr/>
+<% if user_stats = @user.user_stats %>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th colspan="2"><%= @user.username %> Stats</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Played</th>
+        <td><%= user_stats.games_played %></td>
+      </tr>
+      <tr>
+        <th>Won</th>
+        <td><%= user_stats.games_won %></td>
+      </tr>
+      <tr>
+        <th>Lost</th>
+        <td><%= user_stats.games_lost %></td>
+      </tr>
+      <tr>
+        <th>Folded</th>
+        <td><%= user_stats.games_folded %></td>
+      </tr>
+      <tr>
+        <th>Tournaments Won</th>
+        <td><%= user_stats.tournaments_won %></td>
+      </tr>
+      <tr>
+        <th>Duels Won</th>
+        <td><%= user_stats.duels_won %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

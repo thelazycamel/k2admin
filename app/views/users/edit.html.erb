@@ -1,7 +1,19 @@
 <div class="inner-page-header">
   <div class="row">
-    <div class="col-sm-12">
-      <h2>Edit Player: <%= @user.email %></h2>
+    <div class="col-sm-4">
+      <h2>Edit <%= @user.username %></h2>
+    </div>
+    <div class="col-sm-2">
+      <%= link_to "#{@user.username} chats", user_chats_path(@user.id), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<div class="inner-page-main">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= bootstrap_form_for(@user) do |form| %>
+        <%= render "form", form: form, action: "edit" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,0 +1,31 @@
+<div class="inner-page-header">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2><%= link_to @tournament.name, edit_tournament_path(@tournament) %> Chats</h2>
+    </div>
+  </div>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Comment</th>
+      <th>Date/time</th>
+      <th>Player</th>
+    </tr>
+  <tbody>
+    <% @chats.each do |chat| %>
+      <tr>
+        <td><%= chat.comment %></td>
+        <td><%= simple_time(chat.inserted_at) %></td>
+        <td><%= link_to(chat.user.username, user_chats_path(chat.user_id)) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3" class="centre">
+        <%= paginate @chats, theme: 'twitter-bootstrap-4' %>
+      </td>
+    </tr>
+  </tfoot>
+</table>

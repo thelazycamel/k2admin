@@ -1,7 +1,19 @@
 <div class="inner-page-header">
   <div class="row">
-    <div class="col-sm-12">
-      <h2>Edit Tournament: <%= @tournament.name %></h2>
+    <div class="col-sm-4">
+      <h2>Edit <%= @tournament.name %></h2>
+    </div>
+    <div class="col-sm-2">
+      <%= link_to "Chats", tournament_chats_path(@tournament.id), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<div class="inner-page-main">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= bootstrap_form_for(@tournament) do |form| %>
+        <%= render "form", form: form, action: "edit" %>
+      <% end %>
     </div>
   </div>
 </div>

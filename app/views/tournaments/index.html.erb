@@ -1,11 +1,9 @@
 <div class="inner-page-header">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-4">
         <h2>Tournaments</h2>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-4">
        <%= link_to "New Tournament", new_tournament_path, class: "btn btn-med btn-primary" %>
     </div>
     <div class="col-sm-4">
@@ -36,8 +34,12 @@
         <td><%= tournament.tournament_type %></td>
         <td><%= tournament.user_tournament_details.count %></td>
         <td><%= "finished" if tournament.finished %></td>
-        <td><button class="btn btn-success btn-sm">Edit</button>
-        <button class="btn btn-danger btn-sm">Destroy</button>
+        <td>
+          <%= link_to("Chats", tournament_chats_path(tournament.id), class: "btn btn-sm btn-primary") %>
+          <%= link_to("Edit", edit_tournament_path(tournament.id), class: "btn btn-success btn-sm") %>
+        <% unless tournament.default_tournament %>
+          <%= link_to("Destroy", tournament_path(tournament.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm") %>
+        <% end %>
         </td>
       </tr>
     <% end %>

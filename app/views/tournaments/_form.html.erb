@@ -1,0 +1,16 @@
+<%= form.text_field :name %>
+<%= form.text_field :description %>
+<%= form.check_box :finished %>
+<%= form.check_box :private %>
+<%= form.check_box :bots %>
+<%= form.text_field :rebuys, disabled: :disabled %>
+<%= form.date_select :start_time %>
+<%= form.select :lose_type, options_for_select(["all", "half"], (@tournament.lose_type || "all")) %>
+<%= form.select :tournament_type, options_for_select(["tournament", "duel"], (@tournament.tournament_type || "tournament")) %>
+<%= form.select :starting_chips, options_for_select(starting_chip_values, (@tournament.starting_chips || 1) ) %>
+<%= form.select :max_score, options_for_select(max_score_values, (@tournament.max_score || 1) ) %>
+<%= form.select :image, options_for_select(tournament_image_values, (@tournament.image || "/images/tournament/tournament.svg")) %>
+<%= form.hidden_field :inserted_at, value: (@tournament.inserted_at || Time.now) %>
+<%= form.hidden_field :updated_at, value: Time.now %>
+<%= form.submit submit_button_label(action, "Tournament"), class: "btn btn-lg btn-primary" %>
+

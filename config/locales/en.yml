@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  date:
+    formats:
+      simple: "%FT%T %d.%m.%Y"
