@@ -21,9 +21,13 @@ module FormHelper
 
   def tournament_image_values
     [
-      ["tournament", "/images/tournament/tournament.svg"],
-      ["private", "/images/tournament/private.svg"],
-      ["duel", "/images/tournament/duel.svg"],
+      ["Cardano", "/images/tournament/cardano.svg"],
+      ["Duel", "/images/tournament/duel.svg"],
+      ["Mini Tournament", "/images/tournament/mini-tournament.svg"],
+      ["Monero", "/images/tournament/monero.svg"],
+      ["Private", "/images/tournament/private.svg"],
+      ["Nano", "/images/tournament/nano.svg"],
+      ["Waves", "/images/tournament/waves.svg"]
     ]
   end
 

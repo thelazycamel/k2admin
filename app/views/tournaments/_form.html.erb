@@ -12,5 +12,6 @@
 <%= form.select :image, options_for_select(tournament_image_values, (@tournament.image || "/images/tournament/tournament.svg")) %>
 <%= form.hidden_field :inserted_at, value: (@tournament.inserted_at || Time.now) %>
 <%= form.hidden_field :updated_at, value: Time.now %>
+<%= form.hidden_field :user_id, value: User.find_by(username: "thelazycamel").id %>
 <%= form.submit submit_button_label(action, "Tournament"), class: "btn btn-lg btn-primary" %>
 

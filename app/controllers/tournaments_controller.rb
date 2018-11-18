@@ -5,7 +5,6 @@ class TournamentsController < ApplicationController
   end
 
   def new
-    flash[:success] = "new doc"
     @tournament = Tournament.new
   end
 
@@ -59,7 +58,8 @@ class TournamentsController < ApplicationController
       :max_score,
       :image,
       :inserted_at,
-      :updated_at
+      :updated_at,
+      :user_id
     )
   end
 
