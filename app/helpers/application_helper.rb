@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def active_class(name)
+    controller_name == name ? "active" : ""
+  end
+
   def flash_class(level)
     case level
     when "notice" then "alert alert-info"
