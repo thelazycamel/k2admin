@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     get "/tournament_chats/:tournament_id", to: "chats#tournament_chats", as: :tournament_chats
   end
 
+  scope :home do
+    get "/run_task/:task", to: "home#run_task", as: :run_task
+  end
+
   root to: "home#index"
+
 
 end

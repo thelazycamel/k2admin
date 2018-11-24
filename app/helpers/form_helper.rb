@@ -1,5 +1,16 @@
 module FormHelper
 
+  def show_user_image(user)
+    url = if !user.image.present?
+      "https://www.k2poker.io/images/profile-images/fish.png"
+    elsif user.image.starts_with?("http")
+      user.image
+    else
+     "https://www.k2poker.io#{@user.image}"
+    end
+    image_tag(url, width: "70px", height: "70px")
+  end
+
   def submit_button_label(action, class_name)
     case action
     when "new"

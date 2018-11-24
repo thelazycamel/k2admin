@@ -1,7 +1,11 @@
 class TournamentsController < ApplicationController
 
   def index
-    @tournaments = Tournament.order(:inserted_at).page(params[:page])
+    if search = params[:search]
+      @tournaments = Tournament.where("name ilike ?", "%#{search}%").order(:inserted_at).page(params[:page])
+    else
+      @tournaments = Tournament.order(:inserted_at).page(params[:page])
+    end
   end
 
   def new
@@ -45,6 +49,7 @@ class TournamentsController < ApplicationController
 
   def tournament_params
     params.require(:tournament).permit(
+      :search,
       :name,
       :description,
       :finished,

@@ -17,7 +17,7 @@
       <tr>
         <td><%= chat.comment %></td>
         <td><%= simple_time(chat.inserted_at) %></td>
-        <td><%= link_to(chat.tournament.name, tournament_chats_path(chat.tournament_id)) %></td>
+        <td><%= link_to("#{chat.tournament.name} Chats", tournament_chats_path(chat.tournament_id)) %></td>
       </tr>
     <% end %>
   </tbody>

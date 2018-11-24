@@ -16,4 +16,5 @@ let setUpEventGlobalListeners = function() {
   }, 3000);
 }
 
-setUpEventGlobalListeners()
+$(document).on("turbolinks:load", setUpEventGlobalListeners);
+

@@ -1,17 +1,19 @@
 <div class="inner-page-header">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2">
         <h2>Tournaments</h2>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
        <%= link_to "New Tournament", new_tournament_path, class: "btn btn-med btn-primary" %>
     </div>
     <div class="col-sm-4">
-      <div class="form-group form-inline">
+      <form action="<%= tournaments_path %>" method="get" class="form-inline">
+      <div class="form-group">
         <label class="sr-only">Search</label>
-        <input type="search" placeholder="search" class="form-control" />
-        <button type="submit" class="btn btn-med btn-primary">Search</button>
+        <input name="search" type="search" placeholder="search" class="form-control" value="<%= params[:search] %>" />
+        <input type="submit" class="btn btn-med btn-primary form-control" value="Search" />
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -23,12 +25,12 @@
       <th scope="col">Tournament Type</th>
       <th scope="col">Players</th>
       <th scope="col">Finished</th>
-      <th scope="col">Actions</th>
+      <th scope="col" width="20%">Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @tournaments.each do |tournament| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd") %>">
         <td><%= link_to(tournament.name, edit_tournament_path(tournament.id)) %></td>
         <td><%= tournament.description %></td>
         <td><%= tournament.tournament_type %></td>

@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
 
   paginates_per 10
 
+  def chat_disabled?
+    self.data["chat_disabled"]
+  end
+
 end

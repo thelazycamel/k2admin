@@ -17,7 +17,7 @@
       <tr>
         <td><%= chat.comment %></td>
         <td><%= simple_time(chat.inserted_at) %></td>
-        <td><%= link_to(chat.user.username, user_chats_path(chat.user_id)) %></td>
+        <td><%= link_to("#{chat.user.username} Chats", user_chats_path(chat.user_id)) %></td>
       </tr>
     <% end %>
   </tbody>

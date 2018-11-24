@@ -6,6 +6,20 @@ table.table {
       }
     }
   }
+  tbody {
+    tr {
+      &:hover {
+        background-color: #dedede;
+      }
+      &.odd {
+        background-color: #ededed;
+        &:hover {
+          background-color: #dedede;
+        }
+      }
+    }
+
+  }
   tfoot {
     td {
       &.centre {

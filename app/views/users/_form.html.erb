@@ -1,7 +1,18 @@
+<div class="row">
+  <div class="col-sm-12">
+    <%= show_user_image(@user) %>
+  </div>
+</div>
+<br/>
+<div class="form-check">
+  <input name="user[data][chat_disabled]" type="hidden" value="false">
+  <input type="checkbox" name="user[data][chat_disabled]" id="user_data_chat_disabled" <%= "checked" if @user.chat_disabled? %> class="form-check-input" value="true" />
+  <label class="form-check-label" for="user[data][chat_disabled]">Disable Chat</label>
+</div>
+<br/>
 <%= form.email_field :email %>
 <%= form.text_field :username %>
-<%= form.text_field :image %>
-<%= form.text_field :blurb %>
+<%= form.text_field :blurb, placeholder: "Bio" %>
 <%= form.submit "Update Player", class: "btn btn-lg btn-primary" %>
 <hr/>
 <% if user_stats = @user.user_stats %>

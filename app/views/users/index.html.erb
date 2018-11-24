@@ -4,11 +4,13 @@
         <h2>Players</h2>
     </div>
     <div class="col-sm-4">
-      <div class="form-group form-inline">
-        <label class="sr-only">Search</label>
-        <input type="search" placeholder="search" class="form-control" />
-        <button type="submit" class="btn btn-med btn-primary">Search</button>
-      </div>
+      <form action="<%= users_path %>" method="get" class="form-inline">
+        <div class="form-group">
+          <label class="sr-only">Search</label>
+          <input name="search" type="search" placeholder="search" class="form-control" value="<%= params[:search] %>" />
+          <input type="submit" class="btn btn-med btn-primary form-control" value="Search" />
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -18,15 +20,17 @@
       <th scope="col">Username</th>
       <th scope="col">Email</th>
       <th scope="col">Member Since</th>
-      <th scope="col">Actions</th>
+      <th scope="col">Chat Disabled</th>
+      <th scope="col" width="20%">Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd") %>">
         <td><%= link_to(user.username, edit_user_path(user.id)) %></td>
         <td><%= user.email %>
         <td><%= simple_time(user.inserted_at) %></td>
+        <td><%= user.chat_disabled? ? "Disabled" : "" %></td>
         <td>
           <%= link_to("Chats", user_chats_path(user.id), class:"btn btn-primary btn-sm") %>
           <%= link_to("Edit", edit_user_path(user.id), class:"btn btn-success btn-sm") %>

@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
+  before_action :coerce_values_to_boolean, only: [:create, :update]
+
   def index
-    @users = User.order(:username).page(params[:page])
+    if search = params[:search]
+      @users = User.where("username ilike ?", "%#{search}%").or(User.where("email ilike ?", "%#{search}%")).order(:username).page(params[:page])
+    else
+      @users = User.order(:username).page(params[:page])
+    end
   end
 
   def edit
@@ -28,12 +34,17 @@ class UsersController < ApplicationController
 
   private
 
+  def coerce_values_to_boolean
+    params[:user][:data][:chat_disabled] = params[:user][:data][:chat_disabled] == "true"
+  end
+
   def user_params
     params.require(:user).permit(
       :username,
       :email,
       :blurb,
-      :image
+      :image,
+      data: [:chat_disabled]
     )
   end
 

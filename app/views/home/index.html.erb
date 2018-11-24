@@ -1,7 +1,7 @@
 <div class="inner-page-header">
   <div class="row">
     <div class="col-sm-12">
-      <h2>K2Poker.io Admin</h2>
+      <h2>K2Poker Admin</h2>
     </div>
   </div>
 </div>
@@ -15,7 +15,7 @@
   <tbody>
     <tr>
       <th>Players</th>
-      <td><%= @users %></td>
+      <td width="50%"><%= @users %></td>
     </tr>
     <tr>
       <th>Tournaments</th>
@@ -36,4 +36,37 @@
   </tbody>
 </table>
 
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th colspan="2">Run Tasks Manually</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="even">
+          <td>Delete old UserTournamentDetails</td>
+          <td width="50%"><%= link_to "Start", run_task_path("destroy_utds"), class: "btn btn-sm btn-warning" %></td>
+        </tr>
+        <tr class="odd">
+          <td>Delete old Games</td>
+          <td><%= link_to "Start", run_task_path("destroy_games"), class: "btn btn-sm btn-warning" %></td>
+        </tr>
+        <tr class="even">
+          <td>Delete old Tournaments</td>
+          <td><%= link_to "Start", run_task_path("destroy_tournaments"), class: "btn btn-sm btn-warning" %></td>
+        </tr>
+        <tr class="odd">
+          <td>Delete old Chats</td>
+          <td><%= link_to "Start", run_task_path("destroy_chats"), class: "btn btn-sm btn-warning" %></td>
+        </tr>
+        <tr class="odd">
+          <td>Run all of the above</td>
+          <td><%= link_to "Start", run_task_path("all"), class: "btn btn-sm btn-warning" %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
