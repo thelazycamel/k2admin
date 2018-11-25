@@ -35,9 +35,11 @@ class UsersController < ApplicationController
   private
 
   def coerce_values_to_boolean
-    params[:user][:data][:chat_disabled] = params[:user][:data][:chat_disabled] == "true"
-    params[:user][:data][:admin] = params[:user][:data][:admin] == "true"
-    params[:user][:data][:mute] = params[:user][:data][:mute] == "true"
+    params[:user][:data].each do |key, value|
+      if ["true","false"].include?(value)
+        params[:user][:data][key] = params[:user][:data][key] == "true"
+      end
+    end
   end
 
   def user_params
