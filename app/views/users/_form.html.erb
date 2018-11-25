@@ -12,6 +12,16 @@
 <br/>
 <%= form.email_field :email %>
 <%= form.text_field :username %>
+<div class="form-check">
+  <input name="user[data][mute]" type="hidden" value="false">
+  <input type="checkbox" name="user[data][mute]" id="user_data_mute" <%= "checked" if @user.data["mute"] %> class="form-check-input" value="true" />
+  <label class="form-check-label" for="user[data][mute]">Mute</label>
+</div>
+<div class="form-check">
+  <input name="user[data][admin]" type="hidden" value="false">
+  <input type="checkbox" name="user[data][admin]" id="user_data_admin" <%= "checked" if @user.admin? %> class="form-check-input" value="true" />
+  <label class="form-check-label" for="user[data][admin]">Admin</label>
+</div>
 <%= form.text_field :blurb, placeholder: "Bio" %>
 <%= form.submit "Update Player", class: "btn btn-lg btn-primary" %>
 <hr/>

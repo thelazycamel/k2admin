@@ -37,8 +37,8 @@
         <td><%= tournament.user_tournament_details.count %></td>
         <td><%= "finished" if tournament.finished %></td>
         <td>
-          <%= link_to("Chats", tournament_chats_path(tournament.id), class: "btn btn-sm btn-primary") %>
           <%= link_to("Edit", edit_tournament_path(tournament.id), class: "btn btn-success btn-sm") %>
+          <%= link_to("Chats", tournament_chats_path(tournament.id), class: "btn btn-sm btn-primary") %>
         <% unless tournament.default_tournament %>
           <%= link_to("Destroy", tournament_path(tournament.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm") %>
         <% end %>

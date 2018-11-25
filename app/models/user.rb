@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
     self.data["chat_disabled"]
   end
 
+  def admin?
+    self.data["admin"]
+  end
+
 end
