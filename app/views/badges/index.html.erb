@@ -1,0 +1,44 @@
+<div class="inner-page-header">
+  <div class="row">
+    <div class="col-sm-2">
+        <h2>Badges</h2>
+    </div>
+    <div class="col-sm-6">
+       <%= link_to "New Badge", new_badge_path, class: "btn btn-med btn-primary" %>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col" width="20%">Description</th>
+      <th scope="col">Group</th>
+      <th scope="col">Position</th>
+      <th scope="col" width="20%">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @badges.each do |badge| %>
+      <tr class="<%= cycle("even", "odd") %>">
+        <td><%= link_to(badge.name, edit_badge_path(badge.id)) %></td>
+        <td><%= badge.description %></td>
+        <td><%= badge.group %></td>
+        <td><%= badge.position %></td>
+        <td>
+          <%= link_to("Edit", edit_badge_path(badge.id), class: "btn btn-success btn-sm") %>
+          <%= link_to("Destroy", badge_path(badge.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="6" class="centre">
+        <%= paginate @badges, theme: 'twitter-bootstrap-4' %>
+      </td>
+    </tr>
+  </tfoot>
+</table>

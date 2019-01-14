@@ -8,13 +8,23 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: stuart
-  password: aurora
   timeout: 5000
+
+#*** PRODUCTION ****
+#development:
+  #<<: *default
+  #database: k2poker_io_prod
+  #host: localhost
+  #port: 5431
+  #username: deploy
+  #password: yVTfqYpzn8xELMVzr7AdFjgN9
+
 
 development:
   <<: *default
   database: k2poker_dev
+  username: stuart
+  password: aurora
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

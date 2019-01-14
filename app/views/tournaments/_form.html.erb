@@ -1,10 +1,10 @@
 <%= form.text_field :name %>
 <%= form.text_field :description %>
-<%= form.check_box :finished %>
 <%= form.check_box :private %>
 <%= form.check_box :bots %>
 <%= form.text_field :rebuys, disabled: :disabled %>
 <%= form.date_select :start_time %>
+<%= form.check_box :finished %>
 <%= form.select :lose_type, options_for_select(["all", "half"], (@tournament.lose_type || "all")) %>
 <%= form.select :tournament_type, options_for_select(["tournament", "duel"], (@tournament.tournament_type || "tournament")) %>
 <%= form.select :starting_chips, options_for_select(starting_chip_values, (@tournament.starting_chips || 1) ) %>

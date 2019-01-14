@@ -13,23 +13,27 @@
       </th>
     </tr>
   <tbody>
-    <tr>
-      <th>Players</th>
+    <tr class="even">
+      <th>Total Signed Up Users</th>
       <td width="50%"><%= @users %></td>
     </tr>
-    <tr>
+    <tr class="even">
+      <th>Players Online</th>
+      <td width="50%"><%= @players_online %></td>
+    </tr>
+    <tr class="odd">
       <th>Tournaments</th>
       <td><%= @tournaments %></td>
     </tr>
-    <tr>
+    <tr class="even">
       <th>Games</th>
       <td><%= @games %></td>
     </tr>
-    <tr>
+    <tr class="odd">
       <th>UTDs</th>
       <td><%= @user_tournament_details %></td>
     </tr>
-    <tr>
+    <tr class="even">
       <th>Anon Users</th>
       <td><%= @anon_users %></td>
     </tr>
@@ -61,7 +65,7 @@
           <td>Delete old Chats</td>
           <td><%= link_to "Start", run_task_path("destroy_chats"), class: "btn btn-sm btn-warning" %></td>
         </tr>
-        <tr class="odd">
+        <tr class="even">
           <td>Run all of the above</td>
           <td><%= link_to "Start", run_task_path("all"), class: "btn btn-sm btn-warning" %></td>
         </tr>

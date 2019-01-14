@@ -2,6 +2,7 @@ class HomeController < ApplicationController
 
   def index
     @users = User.count
+    @players_online = UserTournamentDetail.where("updated_at > ?", Time.now - 5.minutes).count
     @tournaments = Tournament.count
     @games = Game.count
     @user_tournament_details = UserTournamentDetail.count

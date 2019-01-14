@@ -1,0 +1,16 @@
+<div class="inner-page-header">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Create a new Badge</h2>
+    </div>
+  </div>
+</div>
+<div class="inner-page-main">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= bootstrap_form_for(@badge) do |form| %>
+        <%= render "form", form: form, action: "new" %>
+      <% end %>
+    </div>
+  </div>
+</div>

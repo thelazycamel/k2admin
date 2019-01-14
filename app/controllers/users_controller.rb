@@ -23,6 +23,14 @@ class UsersController < ApplicationController
       flash[:error] = "Unable to update user"
       render :edit
     end
+  rescue ActiveRecord::RecordNotUnique => e
+    if e.message.include?("username_index")
+      @user.errors.add(:username, "Already Taken")
+    elsif e.message.include?("email_index")
+      @user.errors.add(:email, "Already Taken")
+    end
+    flash.now[:error] = "Unable to update user"
+    render :edit
   end
 
   def destroy
