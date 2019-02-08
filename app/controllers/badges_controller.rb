@@ -13,7 +13,7 @@ class BadgesController < ApplicationController
   end
 
   def create
-    @badge = Badge.new(badge_params)
+    @badge = Badge.new(badge_params.merge(inserted_at: Time.now, updated_at: Time.now))
     if @badge.save
       flash[:success] = "Badge #{@badge.name} Created"
       redirect_to badges_path

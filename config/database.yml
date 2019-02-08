@@ -12,13 +12,12 @@ default: &default
 
 #*** PRODUCTION ****
 #development:
-  #<<: *default
-  #database: k2poker_io_prod
-  #host: localhost
-  #port: 5431
-  #username: deploy
-  #password: yVTfqYpzn8xELMVzr7AdFjgN9
-
+#  <<: *default
+#  database: k2poker_io_prod
+#  host: localhost
+#  port: 5431
+#  username: deploy
+#  password: yVTfqYpzn8xELMVzr7AdFjgN9
 
 development:
   <<: *default

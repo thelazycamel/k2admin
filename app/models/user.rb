@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :invitations
   has_many :user_tournament_details
+  has_many :user_badges
+  has_many :badges, through: :user_badges
   has_many :tournaments, through: :user_tournament_details
 
   paginates_per 10
