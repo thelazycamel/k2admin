@@ -1,0 +1,20 @@
+<div class="inner-page-header">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Create an Invitation</h2>
+    </div>
+  </div>
+</div>
+<div class="inner-page-main">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= bootstrap_form_for(@invitation) do |form| %>
+        <%= form.select :tournament_id, options_from_collection_for_select(Tournament.private_open, "id", "name", @invitation.tournament_id || params[:tournament_id]) %>
+        <%= form.select :user_id, options_from_collection_for_select(users_for_invitations_select(params[:tournament_id]), "id", "username", @invitation.user_id || params[:user_id]) %>
+        <%= form.check_box :accepted %>
+        <hr>
+        <%= form.submit submit_button_label(:new, "Invitation"), class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

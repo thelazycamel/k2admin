@@ -24,7 +24,7 @@
       <th scope="col" width="20%">Description</th>
       <th scope="col">Tournament Type</th>
       <th scope="col">Players</th>
-      <th scope="col">Finished</th>
+      <th scope="col">Invites</th>
       <th scope="col" width="20%">Actions</th>
     </tr>
   </thead>
@@ -35,7 +35,7 @@
         <td><%= tournament.description %></td>
         <td><%= tournament.tournament_type %></td>
         <td><%= tournament.user_tournament_details.count %></td>
-        <td><%= "finished" if tournament.finished %></td>
+        <td><%= link_to_tournament_invitations(tournament) %></td>
         <td>
           <%= link_to("Edit", edit_tournament_path(tournament.id), class: "btn btn-success btn-sm") %>
           <%= link_to("Chats", tournament_chats_path(tournament.id), class: "btn btn-sm btn-primary") %>

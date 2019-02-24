@@ -1,0 +1,22 @@
+<div class="inner-page-header">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Edit Invitation</h2>
+    </div>
+  </div>
+</div>
+<div class="inner-page-main">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= bootstrap_form_for(@invitation) do |form| %>
+        <p>Tournament: <%= @invitation.tournament.name %></p>
+        <p>User: <%= @invitation.user.username %></p>
+        <%= form.check_box :accepted %>
+        <%= form.hidden_field :tournament_id, value: @invitation.tournament.id %>
+        <%= form.hidden_field :used_id, value: @invitation.user.id %>
+        <hr>
+        <%= form.submit submit_button_label(:update, "Invitation"), class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

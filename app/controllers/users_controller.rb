@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :coerce_values_to_boolean, only: [:create, :update]
+  before_action :coerce_values_to_boolean, only: [:update]
 
   def index
     if search = params[:search]

@@ -2,9 +2,9 @@ class TournamentsController < ApplicationController
 
   def index
     if search = params[:search]
-      @tournaments = Tournament.where("name ilike ?", "%#{search}%").order(:inserted_at).page(params[:page])
+      @tournaments = Tournament.includes(:invitations).where("name ilike ?", "%#{search}%").order(:inserted_at).page(params[:page])
     else
-      @tournaments = Tournament.order(:inserted_at).page(params[:page])
+      @tournaments = Tournament.includes(:invitations).order(:inserted_at).page(params[:page])
     end
   end
 

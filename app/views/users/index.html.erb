@@ -21,6 +21,7 @@
       <th scope="col">Email</th>
       <th scope="col">Member Since</th>
       <th scope="col">Chat Disabled</th>
+      <th scope="col">Invitations</th>
       <th scope="col" width="20%">Actions</th>
     </tr>
   </thead>
@@ -31,6 +32,7 @@
         <td><%= user.email %></td>
         <td><%= simple_time(user.inserted_at) %></td>
         <td><%= user.chat_disabled? ? "Disabled" : "" %></td>
+        <td><%= link_to("#{user.invitations.accepted.count} of #{user.invitations.count}", for_user_invitations_path(user), class: "btn btn-sm btn-primary") %></td>
         <td>
           <%= link_to("Edit", edit_user_path(user.id), class:"btn btn-success btn-sm") %>
           <%= link_to("Chats", user_chats_path(user.id), class:"btn btn-primary btn-sm") %>
